@@ -49,7 +49,7 @@ CREATE TABLE `patient` (
 CREATE TABLE `user_account` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `type_id` tinyint NOT NULL,
+  `type_id` enum('0','1') NOT NULL,
   `patient_id` int DEFAULT NULL,
   `employee_id` int DEFAULT NULL,
   PRIMARY KEY (`username`),
