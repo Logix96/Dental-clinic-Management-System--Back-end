@@ -48,6 +48,9 @@ def login():
                     # lễ tân
                     elif emp_info and emp_info['employee_type'] == 'r':
                         return redirect(url_for('receptionist_dashboard'))
+                    # admin
+                    elif emp_info and emp_info['employee_type'] == 'a':
+                        return redirect(url_for('admin_dashboard'))
                     else:
                         return "..."
             else:
@@ -576,6 +579,189 @@ def pay_bill():
         finally:
             cursor.close()
             conn.close()
+
+
+#
+#
+#
+#
+#
+#
+#
+@app.route('/admin_dashboard')
+def admin_dashboard():
+    if 'username' not in session or session['type_id'] != 1:
+        return redirect(url_for('login'))
+
+    conn = get_db_connection()
+    stats = {'revenue': 0, 'patients': 0, 'appointments': 0}
+    employees = []
+    procedures = []
+
+    if conn:
+        cursor = conn.cursor(dictionary=True)
+        
+        # kiểm tra bảo mật xem nhân viên này có đúng là admin không
+        cursor.execute("""
+            SELECT employee_type FROM employee_info ei
+            JOIN employee e ON ei.employee_pin = e.employee_pin
+            WHERE e.employee_id = %s
+        """, (session['employee_id'],))
+        emp = cursor.fetchone()
+        if not emp or emp['employee_type'] != 'a':
+            conn.close()
+            return "Bạn không có quyền truy cập cổng quản trị!"
+
+        # thống kê tổng doanh thu phòng khám từ các hóa đơn đã xuất
+        cursor.execute("SELECT SUM(patient_charge) AS total_revenue FROM invoice")
+        rev_res = cursor.fetchone()
+        stats['revenue'] = rev_res['total_revenue'] if rev_res['total_revenue'] else 0
+
+        # Thống kê tổng số bệnh nhân đăng ký hệ thống
+        cursor.execute("SELECT COUNT(*) AS total_patients FROM patient")
+        stats['patients'] = cursor.fetchone()['total_patients']
+
+        # Thống kê tổng số ca hẹn khám từ trước đến nay
+        cursor.execute("SELECT COUNT(*) AS total_appointments FROM appointment")
+        stats['appointments'] = cursor.fetchone()['total_appointments']
+
+        # Lấy danh sách toàn bộ nhân sự phòng khám
+        cursor.execute("""
+            SELECT e.employee_id, ei.*, u.username 
+            FROM employee_info ei
+            JOIN employee e ON ei.employee_pin = e.employee_pin
+            LEFT JOIN user_account u ON e.employee_id = u.employee_id
+            ORDER BY e.employee_id ASC
+        """)
+        employees = cursor.fetchall()
+
+        # Lấy danh sách danh mục bảng giá dịch vụ hiện tại
+        cursor.execute("SELECT * FROM `procedure` ORDER BY procedure_code ASC")
+        procedures = cursor.fetchall()
+
+        conn.close()
+
+    return render_template('admin_dashboard.html', stats=stats, employees=employees, procedures=procedures)
+
+@app.route('/admin_add_procedure', methods=['POST'])
+def admin_add_procedure():
+    if 'username' not in session or session['type_id'] != 1:
+        return redirect(url_for('login'))
+
+    p_name = request.form['procedure_name']
+    p_fee = float(request.form['procedure_fee'])
+
+    conn = get_db_connection()
+    if conn:
+        cursor = conn.cursor()
+        try:
+            cursor.execute("""
+                INSERT INTO `procedure` (procedure_name, procedure_fee) 
+                VALUES (%s, %s)
+            """, (p_name, p_fee))
+            conn.commit()
+        except Exception as err:
+            print(f"Lỗi thêm dịch vụ: {err}")
+            conn.rollback()
+        finally:
+            cursor.close()
+            conn.close()
+            
+    return redirect(url_for('admin_dashboard'))
+
+@app.route('/admin_edit_procedure', methods=['POST'])
+def admin_edit_procedure():
+    if 'username' not in session or session['type_id'] != 1:
+        return redirect(url_for('login'))
+
+    p_code = request.form['procedure_code']
+    p_name = request.form['procedure_name']
+    p_fee = float(request.form['procedure_fee'])
+
+    conn = get_db_connection()
+    if conn:
+        cursor = conn.cursor()
+        try:
+            cursor.execute("""
+                UPDATE `procedure` 
+                SET procedure_name = %s, procedure_fee = %s 
+                WHERE procedure_code = %s
+            """, (p_name, p_fee, p_code))
+            conn.commit()
+        except Exception as err:
+            print(f"Lỗi cập nhật dịch vụ: {err}")
+            conn.rollback()
+        finally:
+            cursor.close()
+            conn.close()
+            
+    return redirect(url_for('admin_dashboard'))
+
+@app.route('/admin_delete_procedure/<int:code>')
+def admin_delete_procedure(code):
+    if 'username' not in session or session['type_id'] != 1:
+        return redirect(url_for('login'))
+
+    conn = get_db_connection()
+    if conn:
+        cursor = conn.cursor()
+        try:
+            cursor.execute("DELETE FROM `procedure` WHERE procedure_code = %s", (code,))
+            conn.commit()
+        except Exception as err:
+            print(f"Lỗi xóa dịch vụ: {err}")
+            conn.rollback()
+        finally:
+            cursor.close()
+            conn.close()
+            
+    return redirect(url_for('admin_dashboard'))
+
+@app.route('/admin_add_employee', methods=['POST'])
+def admin_add_employee():
+    if 'username' not in session or session['type_id'] != 1:
+        return redirect(url_for('login'))
+
+    emp_pin = request.form['employee_pin']
+    emp_type = request.form['employee_type']
+    name = request.form['name']
+    gender = request.form['gender']
+    phone = request.form['phone']
+    email = request.form['email']
+    address = request.form['address']
+    salary = float(request.form['salary'])
+    username = request.form['username']
+    password = request.form['password']
+
+    conn = get_db_connection()
+    if conn:
+        cursor = conn.cursor()
+        try:
+            # thêm vào bảng thông tin chi tiết nhân sự
+            cursor.execute("""
+                INSERT INTO employee_info (employee_pin, employee_type, name, gender, phone, email, address, salary)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            """, (emp_pin, emp_type, name, gender, phone, email, address, salary))
+
+            # tạo thực thể nhân viên trong bảng quản lý
+            cursor.execute("INSERT INTO employee (employee_pin) VALUES (%s)", (emp_pin,))
+            new_emp_id = cursor.lastrowid
+
+            # Cấp tài khoản đăng nhập hệ thống (type_id = 1 cho tất cả nhân viên)
+            cursor.execute("""
+                INSERT INTO user_account (username, password, type_id, employee_id)
+                VALUES (%s, %s, 1, %s)
+            """, (username, password, new_emp_id))
+
+            conn.commit()
+        except Exception as err:
+            print(f"Lỗi thêm tài khoản nhân viên: {err}")
+            conn.rollback()
+        finally:
+            cursor.close()
+            conn.close()
+
+    return redirect(url_for('admin_dashboard'))
 
 # đăng xuất
 @app.route('/logout')
