@@ -37,16 +37,16 @@ INSERT INTO `patient` (`patient_id`, `patient_pin`) VALUES
 
 -- user account
 INSERT INTO `user_account` (`username`, `password`, `type_id`, `patient_id`, `employee_id`) VALUES
-('admin', 'password123', 0, NULL, 101),
+('admin', 'password123', 1, NULL, 101),
 ('dentist1', 'password123', 1, NULL, 102),
 ('dentist2', 'password123', 1, NULL, 103),
 ('reception1', 'password123', 0, NULL, 104),
 ('reception2', 'password123', 0, NULL, 105),
-('hygienist1', 'password123', 1, NULL, 106),
-('hygienist2', 'password123', 1, NULL, 107),
-('patient1', 'password123', 2, 1, NULL),
-('patient2', 'password123', 2, 2, NULL),
-('patient3', 'password123', 2, 3, NULL);
+('hygienist1', 'password123', 0, NULL, 106),
+('hygienist2', 'password123', 0, NULL, 107),
+('patient1', 'password123', 0, 1, NULL),
+('patient2', 'password123', 0, 2, NULL),
+('patient3', 'password123', 0, 3, NULL);
 
 -- procedure
 INSERT INTO `procedure` (`procedure_code`, `procedure_name`, `procedure_fee`) VALUES
