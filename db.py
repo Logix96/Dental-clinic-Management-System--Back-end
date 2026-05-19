@@ -1,17 +1,12 @@
 import mysql.connector
-import os
-from dotenv import load_dotenv
-
-# Tải các biến môi trường từ file .env
-load_dotenv() 
 
 def get_db_connection():
     try:
         connection = mysql.connector.connect(
-            host=os.environ.get("DB_HOST", "localhost"),
-            user=os.environ.get("DB_USER"),
-            password=os.environ.get("DB_PASSWORD"),
-            database=os.environ.get("DB_NAME")
+            host="localhost",
+            user="root",          # Thay
+            password="4Melaqlosr$", # Thay
+            database="db"   # Thay
         )
         return connection
     except mysql.connector.Error as err:
