@@ -1,99 +1,214 @@
+-- client_info
+INSERT INTO `client_info` (`client_id`, `pin`, `name`, `gender`, `date_of_birth`, `address`, `phone`, `email`) VALUES
+(1, '111111111111', 'A', 'M', '2000-01-01', 'A', '0111111111', '1@gmail.com'),
+(2, '111111111112', 'B', 'M', '2000-01-01', 'A', '0111111112', '2@gmail.com'),
+(3, '111111111113', 'C', 'M', '2000-01-01', 'A', '0111111113', '3@gmail.com'),
+(4, '111111111114', 'D', 'M', '2000-01-01', 'A', '0111111114', '4@gmail.com'),
+(5, '111111111115', 'E', 'M', '2000-01-01', 'A', '0111111115', '5@gmail.com'),
+(6, '111111111116', 'F', 'M', '2000-01-01', 'A', '0111111116', '6@gmail.com'),
+(7, '111111111117', 'G', 'M', '2000-01-01', 'A', '0111111117', '7@gmail.com'),
+(8, '111111111118', 'H', 'M', '2000-01-01', 'A', '0111111118', '8@gmail.com'),
+(9, '111111111119', 'I', 'M', '2000-01-01', 'A', '0111111119', '9@gmail.com'),
+(10, '111111111120', 'J', 'M', '2000-01-01', 'A', '0111111120', '10@gmail.com'),
+(11, '111111111121', 'K', 'F', '2000-01-01', 'A', '0111111121', '11@gmail.com'),
+(12, '111111111122', 'L', 'F', '2000-01-01', 'A', '0111111122', '12@gmail.com'),
+(13, '111111111123', 'M', 'F', '2000-01-01', 'A', '0111111123', '13@gmail.com'),
+(14, '111111111124', 'N', 'F', '2000-01-01', 'A', '0111111124', '14@gmail.com'),
+(15, '111111111125', 'O', 'F', '2000-01-01', 'A', '0111111125', '15@gmail.com'),
+(16, '111111111126', 'P', 'F', '2000-01-01', 'A', '0111111126', '16@gmail.com'),
+(17, '111111111127', 'Q', 'F', '2000-01-01', 'A', '0111111127', '17@gmail.com'),
+(18, '111111111128', 'R', 'F', '2000-01-01', 'A', '0111111128', '18@gmail.com'),
+(19, '111111111129', 'S', 'F', '2000-01-01', 'A', '0111111129', '19@gmail.com'),
+(20, '111111111130', 'T', 'F', '2000-01-01', 'A', '0111111130', '20@gmail.com'),
+(21, '111111111181', 'U', 'M', '2000-01-01', 'A', '1111111211', '21@gmail.com');
 
--- employee
-INSERT INTO `employee_info` (`employee_pin`, `employee_type`, `name`, `gender`, `phone`, `email`, `address`, `salary`) VALUES
-('EMP000000001', 'a', 'Nguyễn Minh Quân', 'M', '0912345678', 'quan.admin@dentalclinic.com', 'Cầu Giấy, Hà Nội', 25000000.00),
-('EMP000000002', 'd', 'Trần Phương Thảo', 'F', '0923456789', 'thao.dentist@dentalclinic.com', 'Đống Đa, Hà Nội', 45000000.00),
-('EMP000000003', 'd', 'Lê Hoàng Long', 'M', '0934567890', 'long.dentist@dentalclinic.com', 'Hai Bà Trưng, Hà Nội', 42000000.00),
-('EMP000000004', 'r', 'Phạm Quỳnh Anh', 'F', '0945678901', 'anh.reception1@dentalclinic.com', 'Thanh Xuân, Hà Nội', 12000000.00),
-('EMP000000005', 'r', 'Bùi Thị Hà', 'F', '0956789012', 'ha.reception2@dentalclinic.com', 'Tây Hồ, Hà Nội', 11000000.00),
-('EMP000000006', 'h', 'Đinh Văn Cường', 'M', '0967890123', 'cuong.hygienist1@dentalclinic.com', 'Hoàng Mai, Hà Nội', 18000000.00),
-('EMP000000007', 'h', 'Vũ Thu Trà', 'F', '0978901234', 'tra.hygienist2@dentalclinic.com', 'Ba Đình, Hà Nội', 17500000.00);
+-- employee_info
+INSERT INTO `employee_info` (`employee_id`, `employee_pin`, `employee_type`, `name`, `gender`, `date_of_birth`, `address`, `phone`, `email`, `salary`) VALUES
+(1, '111111111111', 'a', 'Abc', 'M', '2000-10-06', 'A', '0999999999', 'A', 30000000.00),
+(2, '111111111112', 'd', 'Abd', 'F', '2000-10-06', 'A', '0999999998', 'A', 29000000.00),
+(3, '111111111113', 'd', 'Abe', 'M', '2000-10-06', 'A', '0999999997', 'A', 27000000.00),
+(4, '111111111114', 'd', 'Abf', 'F', '2000-10-06', 'A', '0999999996', 'A', 26000000.00),
+(5, '111111111115', 'd', 'Abg', 'M', '2000-10-06', 'A', '0999999995', 'A', 25000000.00),
+(6, '111111111116', 'd', 'Abh', 'F', '2000-10-06', 'A', '0999999994', 'A', 24000000.00),
+(7, '111111111117', 'r', 'Abi', 'M', '2000-10-06', 'A', '0999999993', 'A', 23000000.00),
+(8, '111111111118', 'r', 'Abj', 'F', '2000-10-06', 'A', '0999999992', 'A', 22000000.00);
 
--- employee
-INSERT INTO `employee` (`employee_id`, `employee_pin`) VALUES
-(101, 'EMP000000001'), -- Quản trị viên
-(102, 'EMP000000002'), -- Nha sĩ 1
-(103, 'EMP000000003'), -- Nha sĩ 2
-(104, 'EMP000000004'), -- Lễ tân 1
-(105, 'EMP000000005'), -- Lễ tân 2
-(106, 'EMP000000006'), -- Hygienist 1
-(107, 'EMP000000007'); -- Hygienist 2
+-- procedure_info
+INSERT INTO `procedure_info` (`procedure_id`, `procedure_name`, `procedure_price`) VALUES
+(1, 'Khám răng tổng quát', 100000.00),
+(2, 'Chụp X-quang răng', 300000.00),
+(3, 'Lấy cao răng + đánh bóng', 500000.00),
+(4, 'Điều trị viêm nướu', 800000.00),
+(5, 'Trám răng sâu', 400000.00),
+(6, 'Trám răng thẩm mỹ Composite', 1200000.00),
+(7, 'Điều trị tủy răng cửa', 900000.00),
+(8, 'Điều trị tủy răng hàm', 2500000.00),
+(9, 'Nhổ răng sữa', 150000.00),
+(10, 'Nhổ răng thường', 700000.00),
+(11, 'Nhổ răng khôn', 2500000.00),
+(12, 'Tẩy trắng răng tại phòng khám', 2000000.00),
+(13, 'Tẩy trắng răng tại nhà', 800000.00),
+(14, 'Bọc răng sứ Titan', 2500000.00),
+(15, 'Bọc răng sứ Zirconia', 6000000.00),
+(16, 'Dán sứ Veneer', 8500000.00),
+(17, 'Hàm giả tháo lắp', 2000000.00),
+(18, 'Niềng răng mắc cài kim loại', 35000000.00),
+(19, 'Niềng răng Invisalign', 80000000.00),
+(20, 'Trồng răng Implant', 25000000.00);
 
--- patient info
-INSERT INTO `patient_info` (`patient_pin`, `address`, `name`, `gender`, `email`, `phone`, `date_of_birth`) VALUES
-('PAT000000001', 'Hoàng Mai, Hà Nội', 'Nguyễn Văn An', 'M', 'an.nguyen95@gmail.com', '0987654321', '1995-05-20'),
-('PAT000000002', 'Ba Đình, Hà Nội', 'Lê Thị Bình', 'F', 'binhle.98@gmail.com', '0976543210', '1998-11-12'),
-('PAT000000003', 'Cầu Giấy, Hà Nội', 'Trần Văn Cường', 'M', 'cuong.tran@gmail.com', '0911223344', '1990-02-15'),
-('PAT000000004', 'Đống Đa, Hà Nội', 'Phạm Thị Dung', 'F', 'dung.pham@gmail.com', '0922334455', '2001-08-08'),
-('PAT000000005', 'Thanh Xuân, Hà Nội', 'Hoàng Văn Em', 'M', 'em.hoang@gmail.com', '0933445566', '1985-12-30'),
-('PAT000000006', 'Hai Bà Trưng, Hà Nội', 'Ngô Thị Phương', 'F', 'phuong.ngo@gmail.com', '0944556677', '1993-04-25'),
-('PAT000000007', 'Tây Hồ, Hà Nội', 'Trịnh Quốc Hưng', 'M', 'hung.trinh@gmail.com', '0955667788', '1988-09-10'),
-('PAT000000008', 'Long Biên, Hà Nội', 'Đào Thu Thủy', 'F', 'thuy.dao@gmail.com', '0966778899', '2005-01-05');
-
--- patient
-INSERT INTO `patient` (`patient_id`, `patient_pin`) VALUES
-(1, 'PAT000000001'), (2, 'PAT000000002'), (3, 'PAT000000003'), (4, 'PAT000000004'),
-(5, 'PAT000000005'), (6, 'PAT000000006'), (7, 'PAT000000007'), (8, 'PAT000000008');
-
--- user account
-INSERT INTO `user_account` (`username`, `password`, `type_id`, `patient_id`, `employee_id`) VALUES
-('admin', 'password123', 1, NULL, 101),
-('dentist1', 'password123', 1, NULL, 102),
-('dentist2', 'password123', 1, NULL, 103),
-('reception1', 'password123', 1, NULL, 104),
-('reception2', 'password123', 1, NULL, 105),
-('hygienist1', 'password123', 1, NULL, 106),
-('hygienist2', 'password123', 1, NULL, 107),
-('patient1', 'password123', 0, 1, NULL),
-('patient2', 'password123', 0, 2, NULL),
-('patient3', 'password123', 0, 3, NULL);
-
--- procedure
-INSERT INTO `procedure` (`procedure_code`, `procedure_name`, `procedure_fee`) VALUES
-(1, 'Cạo vôi răng & Đánh bóng', 300000.00),
-(2, 'Tẩy trắng răng thẩm mỹ', 1500000.00),
-(3, 'Nhổ răng / Tiểu phẫu', 1000000.00),
-(4, 'Mặt dán sứ thẩm mỹ', 6000000.00),
-(5, 'Trám răng thẩm mỹ Composite', 500000.00),
-(6, 'Bọc răng sứ toàn sứ', 3500000.00),
-(7, 'Điều trị tủy toàn diện', 2500000.00),
-(8, 'Niềng răng chỉnh nha', 30000000.00),
-(9, 'Đắp răng thẩm mỹ / Phục hình', 800000.00),
-(10, 'Làm hàm giả tháo lắp', 5000000.00);
+-- user_account
+INSERT INTO `user_account` (`username`, `password`, `type_id`, `client_id`, `employee_id`) VALUES
+('admin', '123', 1, NULL, 1),
+('client1', '123', 0, 1, NULL),
+('client10', '123', 0, 10, NULL),
+('client11', '123', 0, 11, NULL),
+('client12', '123', 0, 12, NULL),
+('client13', '123', 0, 13, NULL),
+('client14', '123', 0, 14, NULL),
+('client15', '123', 0, 15, NULL),
+('client16', '123', 0, 16, NULL),
+('client17', '123', 0, 17, NULL),
+('client18', '123', 0, 18, NULL),
+('client19', '123', 0, 19, NULL),
+('client2', '123', 0, 2, NULL),
+('client20', '123456', 0, 20, NULL),
+('client21', '123', 0, 21, NULL),
+('client3', '123', 0, 3, NULL),
+('client4', '123', 0, 4, NULL),
+('client5', '123', 0, 5, NULL),
+('client6', '123', 0, 6, NULL),
+('client7', '123', 0, 7, NULL),
+('client8', '123', 0, 8, NULL),
+('client9', '123', 0, 9, NULL),
+('dentist1', '123', 1, NULL, 2),
+('dentist2', '123', 1, NULL, 3),
+('dentist3', '123', 1, NULL, 4),
+('dentist4', '123', 1, NULL, 5),
+('dentist5', '123', 1, NULL, 6),
+('recept1', '123', 1, NULL, 7),
+('recept2', '123', 1, NULL, 8);
 
 -- appointment
-INSERT INTO `appointment` (`appointment_id`, `patient_id`, `dentist_id`, `date_of_appointment`, `start_time`, `end_time`, `appointment_type`, `appointment_status`, `room`) VALUES
-(1, 1, 102, '2026-05-18', '09:00:00', '10:00:00', 'Khám định kỳ', 'Đã đặt lịch', 101),
-(2, 2, 103, '2026-05-15', '14:00:00', '15:00:00', 'Điều trị bệnh lý', 'Đã khám', 102),
-(3, 3, 102, '2026-05-10', '08:30:00', '09:30:00', 'Tiểu phẫu', 'Đã khám', 101),
-(4, 4, 103, '2026-05-12', '10:00:00', '11:00:00', 'Khám tổng quát', 'Vắng mặt', 103),
-(5, 5, 102, '2026-05-19', '15:30:00', '16:30:00', 'Tư vấn thẩm mỹ', 'Đã đặt lịch', 101),
-(6, 6, 103, '2026-05-20', '09:00:00', '11:00:00', 'Thẩm mỹ', 'Đã đặt lịch', 102),
-(7, 7, 102, '2026-05-05', '14:00:00', '15:00:00', 'Khám định kỳ', 'Đã huỷ', 101),
-(8, 8, 103, '2026-05-08', '16:00:00', '17:30:00', 'Thẩm mỹ', 'Đã khám', 103),
-(9, 1, 102, '2026-06-01', '08:00:00', '09:00:00', 'Tái khám', 'Đã đặt lịch', 101),
-(10, 3, 103, '2026-05-25', '13:30:00', '14:30:00', 'Cắt chỉ', 'Đã đặt lịch', 102);
+INSERT INTO `appointment` (`appointment_id`, `client_id`, `dentist_id`, `date_of_appointment`, `time`, `reason`, `appointment_status`) VALUES
+(11, 1, 4, '2026-05-20', '09:45:00', 'Niềng răng kiểm tra', 'Đã đặt lịch'),
+(12, 1, 3, '2026-05-21', '09:15:00', 'Viêm lợi nặng', 'Đã đặt lịch'),
+(13, 2, 3, '2026-05-20', '10:15:00', 'Hàn răng sâu', 'Đã đặt lịch'),
+(14, 2, 6, '2026-05-19', '08:15:00', 'Khám tổng quát', 'Đã khám'),
+(15, 2, 2, '2025-12-15', '08:45:00', 'Trám răng cửa', 'Đã khám'),
+(16, 3, 2, '2026-05-21', '08:30:00', 'Khám tổng quát', 'Đã đặt lịch'),
+(17, 3, 3, '2025-05-31', '11:00:00', 'Viêm lợi nặng', 'Đã huỷ'),
+(18, 3, 2, '2025-09-14', '08:30:00', 'Nhổ răng sữa', 'Vắng mặt'),
+(19, 4, 2, '2026-01-26', '08:30:00', 'Đau răng khôn', 'Đã khám'),
+(20, 4, 5, '2026-05-21', '15:15:00', 'Khám định kỳ', 'Đã đặt lịch'),
+(21, 5, 5, '2026-05-22', '11:00:00', 'Nhổ răng sữa', 'Đã đặt lịch'),
+(22, 5, 2, '2026-05-19', '09:30:00', 'Nhổ răng sữa', 'Đã khám'),
+(23, 6, 2, '2026-05-22', '09:30:00', 'Niềng răng kiểm tra', 'Đã đặt lịch'),
+(24, 6, 3, '2026-05-21', '11:00:00', 'Tẩy trắng răng', 'Đã đặt lịch'),
+(25, 6, 4, '2025-06-23', '09:15:00', 'Viêm lợi nặng', 'Đã khám'),
+(26, 7, 2, '2026-04-09', '10:00:00', 'Lấy cao răng', 'Đã khám'),
+(27, 7, 5, '2026-05-19', '11:15:00', 'Trám răng cửa', 'Đã khám'),
+(28, 8, 4, '2025-02-19', '10:45:00', 'Viêm lợi nặng', 'Đã khám'),
+(29, 8, 3, '2025-12-01', '14:00:00', 'Chữa tủy răng', 'Đã khám'),
+(30, 8, 4, '2026-05-19', '11:15:00', 'Niềng răng kiểm tra', 'Đã khám'),
+(31, 9, 2, '2025-05-08', '14:45:00', 'Nhổ răng sữa', 'Vắng mặt'),
+(32, 9, 3, '2025-11-30', '14:00:00', 'Tẩy trắng răng', 'Đã huỷ'),
+(33, 10, 4, '2026-05-20', '14:15:00', 'Niềng răng kiểm tra', 'Đã đặt lịch'),
+(34, 10, 3, '2025-07-19', '11:30:00', 'Viêm lợi nặng', 'Đã khám'),
+(35, 11, 2, '2025-06-01', '08:00:00', 'Khám định kỳ', 'Đã khám'),
+(36, 11, 6, '2025-09-02', '09:00:00', 'Đau răng khôn', 'Đã huỷ'),
+(37, 11, 5, '2026-05-19', '09:45:00', 'Đau răng khôn', 'Đã khám'),
+(38, 12, 3, '2026-05-19', '10:30:00', 'Tẩy trắng răng', 'Đã khám'),
+(39, 12, 4, '2026-05-20', '09:30:00', 'Trám răng cửa', 'Đã đặt lịch'),
+(40, 13, 5, '2026-05-22', '08:00:00', 'Nhổ răng sữa', 'Đã đặt lịch'),
+(41, 13, 5, '2025-05-16', '10:00:00', 'Chữa tủy răng', 'Vắng mặt'),
+(42, 13, 4, '2025-08-13', '16:30:00', 'Khám tổng quát', 'Đã khám'),
+(43, 14, 6, '2026-05-20', '14:15:00', 'Lấy cao răng', 'Đã đặt lịch'),
+(44, 14, 5, '2025-02-24', '09:30:00', 'Tẩy trắng răng', 'Đã khám'),
+(45, 15, 6, '2025-11-21', '16:45:00', 'Khám định kỳ', 'Đã khám'),
+(46, 15, 6, '2025-08-05', '14:00:00', 'Hàn răng sâu', 'Đã khám'),
+(47, 15, 5, '2026-05-19', '11:00:00', 'Đau răng khôn', 'Đã khám'),
+(48, 16, 4, '2026-05-21', '08:30:00', 'Bọc răng sứ', 'Đã đặt lịch'),
+(49, 16, 2, '2026-05-20', '10:00:00', 'Chữa tủy răng', 'Đã đặt lịch'),
+(50, 17, 4, '2026-05-21', '11:15:00', 'Tẩy trắng răng', 'Đã đặt lịch'),
+(51, 17, 3, '2026-05-22', '15:00:00', 'Hàn răng sâu', 'Đã đặt lịch'),
+(52, 18, 5, '2026-05-20', '09:30:00', 'Hàn răng sâu', 'Đã đặt lịch'),
+(53, 18, 6, '2026-05-19', '15:15:00', 'Tẩy trắng răng', 'Đã khám'),
+(54, 18, 2, '2026-05-20', '09:15:00', 'Khám định kỳ', 'Đã đặt lịch'),
+(55, 19, 5, '2025-05-23', '15:30:00', 'Niềng răng kiểm tra', 'Đã khám'),
+(56, 19, 3, '2026-05-21', '08:00:00', 'Lấy cao răng', 'Đã đặt lịch'),
+(57, 20, 3, '2026-05-22', '11:30:00', 'Viêm lợi nặng', 'Đã đặt lịch'),
+(58, 20, 2, '2026-05-20', '14:45:00', 'Bọc răng sứ', 'Đã đặt lịch');
+
+
+-- treatment_history
+INSERT INTO `treatment_history` (`treatment_id`, `title`, `description`, `client_id`, `appointment_id`) VALUES
+(1, 'Khám răng tổng quát định kỳ', 'Khám tổng quát sức khỏe răng miệng toàn diện, lấy sạch mảng bám.', 2, 14),
+(2, 'Trám răng cửa thẩm mỹ', 'Trám thẩm mỹ bằng Composite cho răng cửa bị mẻ góc cạnh.', 2, 15),
+(3, 'Phẫu thuật nhổ răng khôn mọc lệch', 'Nhổ răng khôn mọc kẹt góc hàm dưới gây đau nhức âm ỉ.', 4, 19),
+(4, 'Nhổ răng sữa lung lay', 'Nhổ bỏ răng sữa lung lay đau buốt, hỗ trợ mọc răng vĩnh viễn.', 5, 22),
+(5, 'Điều trị viêm nướu lợi cấp tính', 'Cạo sạch vôi răng mảng bám và bơm rửa làm sạch túi lợi sâu.', 6, 25),
+(6, 'Lấy cao răng toàn hàm', 'Lấy cao răng siêu âm và đánh bóng hai hàm chống bám bẩn.', 7, 26),
+(7, 'Trám thẩm mỹ răng cửa sâu', 'Điều trị đục nạo sâu răng và trám răng thẩm mỹ răng cửa.', 7, 27),
+(8, 'Điều trị viêm nướu chảy máu', 'Cạo cao răng bề mặt và điều trị nướu bị sưng đỏ chảy máu.', 8, 28),
+(9, 'Nội nha chữa tủy răng hàm sâu vỡ', 'Nội nha lấy tủy toàn bộ và tiến hành trám bế ống tủy chân răng.', 8, 29),
+(10, 'Tái khám niềng răng kiểm tra lực', 'Kiểm tra tiến độ di chuyển răng, thay thun và dây cung định kỳ.', 8, 30),
+(11, 'Điều trị túi viêm quanh răng', 'Làm sạch cao răng sâu dưới nướu giảm thiểu tiêu xương lợi.', 10, 34),
+(12, 'Khám răng định kỳ định hướng điều trị', 'Khám tổng quan tình trạng mảng bám bẩn và răng chớm sâu.', 11, 35),
+(13, 'Nhổ bỏ răng khôn mọc kẹt ngầm', 'Tiểu phẫu lật vạt cắt chia chân nhổ răng khôn ngầm lệch.', 11, 37),
+(14, 'Tẩy trắng răng Laser Whitening', 'Tẩy trắng răng thẩm mỹ sử dụng công nghệ ánh sáng Laser.', 12, 38),
+(15, 'Kiểm tra răng miệng tổng quát', 'Khám răng định kỳ tầm soát tổng thể các bệnh lý quanh răng.', 13, 42),
+(16, 'Tẩy trắng răng tại phòng khám', 'Sử dụng thuốc tẩy nồng độ cao kết hợp đèn kích hoạt plasma.', 14, 44),
+(17, 'Khám kiểm tra sức khỏe răng miệng', 'Kiểm tra định kỳ tổng quan sức khỏe răng lợi sau điều trị.', 15, 45),
+(18, 'Trám hai răng hàm sâu mặt nhai', 'Trám răng sâu lỗ lớn bằng vật liệu composite chịu lực cao.', 15, 46),
+(19, 'Nhổ răng khôn hàm dưới sâu vỡ', 'Phẫu thuật nhổ bỏ răng khôn bị sâu vỡ mẻ hoàn toàn thân răng.', 15, 47),
+(20, 'Tẩy trắng răng thẩm mỹ siêu tốc', 'Thực hiện tẩy trắng hai hàm bằng thuốc nồng độ cao tại ghế.', 18, 53),
+(21, 'Tái khám chỉnh nha niềng răng mắc cài', 'Điều chỉnh hệ thống mắc cài kim loại, tăng lực siết kéo răng.', 19, 55);
+
+-- procedure_history
+INSERT INTO `procedure_history` (`history_id`, `treatment_id`, `procedure_id`, `procedure_date`, `tooth`, `amount`, `charge`, `comment`) VALUES
+(1, 1, 1, '2026-05-19', 'N/A', 1, 100000.00, 'Khám định kỳ tổng quan'),
+(2, 2, 6, '2025-12-15', '21', 1, 1200000.00, 'Trám răng cửa mẻ góc lớn'),
+(3, 3, 11, '2026-01-26', '38', 1, 2500000.00, 'Nhổ răng khôn hàm dưới lệch ngầm'),
+(4, 4, 9, '2026-05-19', '51, 52', 2, 300000.00, 'Nhổ hai răng sữa cửa lung lay nhiều'),
+(5, 5, 4, '2025-06-23', 'N/A', 1, 800000.00, 'Vệ sinh bơm rửa túi nướu viêm cấp'),
+(6, 6, 3, '2026-04-09', 'Toàn hàm', 1, 500000.00, 'Cạo vôi răng bằng máy siêu âm'),
+(7, 7, 6, '2026-05-19', '12', 1, 1200000.00, 'Trám Composite thẩm mỹ răng cửa'),
+(8, 8, 4, '2025-02-19', 'N/A', 1, 800000.00, 'Điều trị nướu sưng viêm chảy máu'),
+(9, 9, 8, '2025-12-01', '46', 1, 2500000.00, 'Lấy tủy toàn bộ răng hàm lớn 46'),
+(10, 10, 1, '2026-05-19', 'N/A', 1, 100000.00, 'Tái khám chỉnh nha niềng răng'),
+(11, 11, 4, '2025-07-19', 'N/A', 1, 800000.00, 'Điều trị túi viêm nha chu quanh răng'),
+(12, 12, 1, '2025-06-01', 'N/A', 1, 100000.00, 'Khám kiểm tra răng định kỳ'),
+(13, 13, 11, '2026-05-19', '48', 1, 2500000.00, 'Tiểu phẫu nhổ răng khôn lệch ngầm khó'),
+(14, 14, 12, '2026-05-19', 'Toàn hàm', 1, 2000000.00, 'Tẩy trắng răng bằng đèn Laser'),
+(15, 15, 1, '2025-08-13', 'N/A', 1, 100000.00, 'Khám răng định kỳ tầm soát răng sâu'),
+(16, 16, 12, '2025-02-24', 'Toàn hàm', 1, 2000000.00, 'Tẩy trắng răng thẩm mỹ tại phòng'),
+(17, 17, 1, '2025-11-21', 'N/A', 1, 100000.00, 'Khám tổng quát sức khỏe răng miệng'),
+(18, 18, 5, '2025-08-05', '16, 26', 2, 800000.00, 'Trám lỗ sâu mặt nhai hai răng hàm lớn'),
+(19, 19, 11, '2026-05-19', '18', 1, 2500000.00, 'Nhổ răng khôn mọc kẹt hàm trên đâm má'),
+(20, 20, 12, '2026-05-19', 'Toàn hàm', 1, 2000000.00, 'Tẩy trắng hai hàm công nghệ Plasma'),
+(21, 21, 1, '2025-05-23', 'N/A', 1, 100000.00, 'Tái khám chỉnh nha xiết lực cung răng');
+
 
 -- invoice
-INSERT INTO `invoice` (`invoice_id`, `patient_id`, `date_of_issue`, `patient_charge`) VALUES
-(1, 2, '2026-05-15', 300000.00),
-(2, 3, '2026-05-10', 1000000.00),
-(3, 8, '2026-05-08', 1500000.00);
-
--- patient billing
-INSERT INTO `patient_billing` (`billing_id`, `patient_id`, `billing_date`, `payment_type`, `total_amount`) VALUES
-(1, 2, '2026-05-15 15:05:00', 'Chuyển khoản', 300000.00),
-(2, 3, '2026-05-10 09:40:00', 'Tiền mặt', 1000000.00),
-(3, 8, '2026-05-08 17:45:00', 'Quẹt thẻ', 1500000.00);
-
--- appointment procedure
-INSERT INTO `appointment_procedure` (`procedure_id`, `appointment_id`, `patient_id`, `date_of_procedure`, `procedure_code`, `appointment_description`, `tooth`, `amount_of_procedure`, `patient_charge`, `total_charge`, `invoice_id`) VALUES
-(1, 2, 2, '2026-05-15', 1, 'Cạo vôi răng mảng bám cứng', 'Hàm dưới', 1, 300000.00, 300000.00, 1),
-(2, 3, 3, '2026-05-10', 3, 'Nhổ răng khôn số 8 mọc lệch', 'Răng 48', 1, 1000000.00, 1000000.00, 2),
-(3, 8, 8, '2026-05-08', 2, 'Tẩy trắng răng Laser', 'Toàn hàm', 1, 1500000.00, 1500000.00, 3);
-
--- appointment treatment
-INSERT INTO `appointment_treatment` (`treatment_id`, `treatment_type`, `medication`, `symptoms`, `tooth`, `comments`, `patient_id`, `appointment_id`) VALUES
-(1, 'Lấy cao răng siêu âm', 'Nước súc miệng diệt khuẩn', 'Ê buốt nhẹ khi ăn đồ lạnh', 'Toàn hàm', 'Tái khám định kỳ sau 6 tháng', 2, 2),
-(2, 'Nhổ răng tiểu phẫu', 'Paracetamol, Kháng sinh', 'Đau nhức vùng góc hàm', 'Răng 48', 'Ăn đồ mềm, quay lại cắt chỉ sau 7 ngày', 3, 3),
-(3, 'Tẩy trắng Laser Whitening', 'Gel giảm buốt', 'Răng ố vàng do cafe', 'Toàn hàm', 'Kiêng đồ ăn có màu sậm trong 48h', 8, 8);
+INSERT INTO `invoice` (`invoice_id`, `treatment_id`, `total_charge`, `discount`, `payment_status`, `invoice_date`) VALUES
+(1, 1, 100000.00, 0.00, 'Đã thanh toán', '2026-05-19'),
+(2, 2, 1200000.00, 0.00, 'Đã thanh toán', '2025-12-15'),
+(3, 3, 2500000.00, 0.00, 'Đã thanh toán', '2026-01-26'),
+(4, 4, 300000.00, 0.00, 'Đã thanh toán', '2026-05-19'),
+(5, 5, 800000.00, 0.00, 'Đã thanh toán', '2025-06-23'),
+(6, 6, 500000.00, 0.00, 'Đã thanh toán', '2026-04-09'),
+(7, 7, 1200000.00, 0.00, 'Đã thanh toán', '2026-05-19'),
+(8, 8, 800000.00, 0.00, 'Đã thanh toán', '2025-02-19'),
+(9, 9, 2500000.00, 0.00, 'Đã thanh toán', '2025-12-01'),
+(10, 10, 100000.00, 0.00, 'Đã thanh toán', '2026-05-19'),
+(11, 11, 800000.00, 0.00, 'Đã thanh toán', '2025-07-19'),
+(12, 12, 100000.00, 0.00, 'Đã thanh toán', '2025-06-01'),
+(13, 13, 2500000.00, 0.00, 'Đã thanh toán', '2026-05-19'),
+(14, 14, 2000000.00, 0.00, 'Chưa thanh toán', NULL), 
+(15, 15, 100000.00, 0.00, 'Đã thanh toán', '2025-08-13'),
+(16, 16, 2000000.00, 0.00, 'Đã thanh toán', '2025-02-24'),
+(17, 17, 100000.00, 0.00, 'Đã thanh toán', '2025-11-21'),
+(18, 18, 800000.00, 0.00, 'Đã thanh toán', '2025-08-05'),
+(19, 19, 2500000.00, 0.00, 'Đã thanh toán', '2026-05-19'),
+(20, 20, 2000000.00, 0.00, 'Đã thanh toán', '2026-05-19'),
+(21, 21, 100000.00, 0.00, 'Chưa thanh toán', NULL);  
